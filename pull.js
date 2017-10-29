@@ -1,6 +1,9 @@
+//immediately-invoked function expression
+//lexical scope
 (function ($) {
+    //when button is clicked..
     $('button').on('click', function () {
-        // remove resultset if this has already been run
+        // remove resultset if this has already been run..in case current data is there
         $('.content ul').remove();
         // add spinner to indicate something is happening
         $('<i class="fa fa-refresh fa-spin"/>').appendTo('body');
@@ -9,7 +12,7 @@
         var zip = $('select option:selected').text().substring(1, 6);
 
         // make the AJAX request
-        $.getJSON('http://data.colorado.gov/resource/4ykn-tg5h.json?entitystatus=Good%20Standing&principalzipcode=' + zip, function (data) {
+        $.getJSON('https://data.colorado.gov/resource/4ykn-tg5h.json?entitystatus=Good%20Standing&principalzipcode=' + zip, function (data) {
 
             // do all this on success
             var items = [],
